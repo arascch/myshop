@@ -24,7 +24,6 @@
         <tbody>
             {% for item in cart  %}
                 {% with prodect=item.product %}
-                
                     <tr>
                         <td>
                             <a href="{{ product.get_absolute_url }}">
@@ -46,4 +45,14 @@
                     </tr>    
                 {% endwith %}
             {% endfor %}
+            <tr class="total">
+                <td> Total </td>
+                <td colspan="4"></td>
+                <td class="num">${{ cart.get_total_price }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text_right">
+        <a href="{% url "shop:product_list"%}" class="button light"> Continue Shopping </a>
+    </p>
 {% endblock content %}
